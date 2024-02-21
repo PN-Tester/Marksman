@@ -1,7 +1,9 @@
 function parsePageForLinks() {
     var links = document.getElementsByTagName('a');
+    var inputs = document.getElementsByTagName('input');
     var paramRegex = /\?.+=.+/; // Regex to match any GET parameters
 
+    // Highlight links
     for (var i = 0; i < links.length; i++) {
         var href = links[i].getAttribute('href');
 
@@ -13,6 +15,13 @@ function parsePageForLinks() {
             if (paramRegex.test(href)) {
                 addHighlightEffect(links[i], 'red');
             }
+        }
+    }
+
+    // Highlight form submission inputs
+    for (var j = 0; j < inputs.length; j++) {
+        if (inputs[j].type === 'submit') {
+            addHighlightEffect(inputs[j], 'orange');
         }
     }
 }
@@ -39,9 +48,8 @@ function addHighlightEffect(element, color) {
     wrapper.appendChild(highlight);
 }
 
-
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-  if (request.action === 'parsePage') {
-    parsePageForLinks();
-  }
+    if (request.action === 'parsePage') {
+        parsePageForLinks();
+    }
 });
