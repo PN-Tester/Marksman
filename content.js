@@ -21,7 +21,7 @@ function parsePageForLinks() {
     // Highlight form submission inputs
     for (var j = 0; j < inputs.length; j++) {
         if (inputs[j].type === 'submit') {
-            addHighlightEffect(inputs[j], 'orange');
+            addHighlightEffect(inputs[j], 'magenta');
         }
     }
 }
