@@ -1,6 +1,6 @@
 # Marksman - Targeting Assistance Tool
 The purpose of this tool is to assist with casual web application penetration testing during large scope engagements where pages may contain dozens or hundreds of links and references to additional endpoints. The tool aims to give testers visual indicators that can help them streamline their attention and focus on elements of interests for further testing without clicking through large numbers of static resources.
-![](https://github.com/PN-Tester/Marksman/blob/main/marksmanV1.gif)
+![](https://github.com/PN-Tester/Marksman/blob/main/marksmanV2.gif)
 
 # Usage
 In 1 click, the tool will highlight in yellow all href elements that refer to pages with the potential for dynamic functionality (asp, php, aspx, jsp, jspx, etc.). The tool will also highlight in red all href elements that contain HTTP GET parameters, after identifying these via regular expression. This should ideally assist penetration testers in focusing quickly on elements of interest for further investigation.
