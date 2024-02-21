@@ -2,18 +2,17 @@ function parsePageForLinks() {
     var links = document.getElementsByTagName('a');
     var inputs = document.getElementsByTagName('input');
     var paramRegex = /\?.+=.+/; // Regex to match any GET parameters
+    var extensionRegex = /\.(asp|aspx|php|jsp|jspx)$/i; // Regex to match specified file extensions
 
     // Highlight links
     for (var i = 0; i < links.length; i++) {
         var href = links[i].getAttribute('href');
 
         if (href) {
-            if (href.includes('.asp')) {
-                addHighlightEffect(links[i], 'yellow');
-            }
-
             if (paramRegex.test(href)) {
                 addHighlightEffect(links[i], 'red');
+            } else if (extensionRegex.test(href)) {
+                addHighlightEffect(links[i], 'yellow');
             }
         }
     }
@@ -25,6 +24,7 @@ function parsePageForLinks() {
         }
     }
 }
+
 
 function addHighlightEffect(element, color) {
     var wrapper = document.createElement('span');
