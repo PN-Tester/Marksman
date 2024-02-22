@@ -2,7 +2,7 @@ function parsePageForLinks() {
     var links = document.getElementsByTagName('a');
     var inputs = document.getElementsByTagName('input');
     var paramRegex = /\?.+=.+/; // Regex to match any GET parameters
-    var extensionRegex = /\.(asp|aspx|php|jsp|jspx)$/i; // Regex to match specified file extensions
+    var extensionRegex = /\.(asp|aspx|php|jsp|jspx|do)$/i; // Regex to match specified file extensions
 
     // Highlight links
     for (var i = 0; i < links.length; i++) {
