@@ -10,7 +10,8 @@
     "activeTab",
     "webNavigation",
     "storage",
-    "tabs"
+    "tabs",
+    "<all_urls>"
   ],
   "web_accessible_resources": [
     "popup.css"
