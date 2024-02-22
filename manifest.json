@@ -1,20 +1,21 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Marksman",
   "version": "1.0",
-  "browser_action": {
+  "action": {
     "default_popup": "popup.html",
-    "default_icon":"logo.png"
+    "default_icon": "logo.png"
   },
   "permissions": [
     "activeTab",
     "webNavigation",
     "storage",
     "tabs",
+    "scripting",
     "<all_urls>"
   ],
-  "web_accessible_resources": [
-    "popup.css"
+  "host_permissions": [
+    "<all_urls>"
   ],
   "content_scripts": [
     {
@@ -23,7 +24,7 @@
     }
   ],
   "background": {
-    "scripts": ["background.js"],
+    "service_worker": "service-worker.js",
     "persistent": false
   }
 }
