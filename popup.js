@@ -1,15 +1,19 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const textSpan = document.getElementById("text");
-  const spinner = document.getElementById("spinner");
-  const dots = document.getElementById("dotsContainer")
-  document.getElementById('marksmanbutton').addEventListener('click', function () {
-    // Send a message to the background script to initiate the request
-    chrome.runtime.sendMessage({ action: 'marksman' });
-    textSpan.classList.add("hidden");
-    spinner.classList.remove("hidden");
-    dots.classList.add("hidden");
+  // Retrieve checkbox state from storage and update UI
+  const checkbox = document.getElementById('infiniteModeCheckbox');
+  chrome.storage.sync.get('infiniteMode', function(data) {
+    checkbox.checked = data.infiniteMode || false;
   });
 
+  // Save checkbox state to storage when it's changed
+  checkbox.addEventListener('change', function() {
+    chrome.storage.sync.set({ 'infiniteMode': this.checked });
+  });
+
+  // Send a message to the background script to initiate the request
+  document.getElementById('marksmanbutton').addEventListener('click', function () {
+    chrome.runtime.sendMessage({ action: 'marksman' });
+  });
 });
 
 document.addEventListener('DOMContentLoaded', function() {
