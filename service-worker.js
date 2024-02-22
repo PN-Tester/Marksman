@@ -1,7 +1,5 @@
 // Function to inject content script and send parsePage event
 async function injectContentScriptAndParsePage(tabId) {
-  console.log('Injecting content script for tabId:', tabId); // Logging for debugging
-  
   try {
     // Inject content script
     await chrome.scripting.executeScript({
@@ -23,7 +21,6 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
       const currentTab = tabs[0];
       if (currentTab) {
-        console.log('Current tabId:', currentTab.id); // Logging for debugging
         injectContentScriptAndParsePage(currentTab.id);
       }
     });
@@ -35,7 +32,6 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     if (request.checked) {
       chrome.tabs.query({}, function(tabs) {
         tabs.forEach(function(tab) {
-          console.log('Injecting content script for tabId:', tab.id); // Logging for debugging
           injectContentScriptAndParsePage(tab.id);
         });
       });
