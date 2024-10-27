@@ -11,6 +11,10 @@ The tool is equally useful for reconnaissance on search results page to visually
 ![](https://github.com/PN-Tester/Marksman/blob/main/marksman_google_demo.gif)
 
 # Installation
+OPTION A)
+1. Install directly from the chrome web store : https://chromewebstore.google.com/detail/marksman/loilimfhcolaokjmlblmngncbcldkmoe
+
+OPTION B) 
 1. git clone https://github.com/PN-Tester/Marksman/
 2. In chromium based browser (chrome, edge, opera, etc) navigate to chrome://extensions
 3. Set the "Developer mode" switch to Enabled
